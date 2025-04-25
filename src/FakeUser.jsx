@@ -1,39 +1,50 @@
 import { Icon } from "@iconify/react";
-import { useState, useEffect } from "react"
+import { useState } from "react";
 
-const _user = {
+let _user = {
     name: "Ana Alface",
     username: "anaalface",
     email: "ana@ana.com",
     urlPhoto: "https://randomuser.me/api/portraits/med/women/56.jpg"
 }
 
+async function loadUser(setUser) {
+    let resp = await fetch("https://randomuser.me/api/")
+    let data = await resp.json()
+    let fakeUser = data.results[0];
+
+    let newUser = {
+        name: fakeUser.name.first + " " + fakeUser.name.last,
+        email: fakeUser.email,
+        username: fakeUser.login.username,
+        urlPhoto: fakeUser.picture.medium
+    };
+
+    console.log("Novo usuário:", newUser);
+    setUser(newUser); // Atualiza o estado do usuário
+}
+
 export default function FakeUser() {
-    const [ user, setUser ] = useState(_user)
+    const [user, setUser] = useState(_user);
 
     return (
         <>
-            <div className="">
-                <div className="">
-                    <div>
-                        <img src={user.urlPhoto} alt="" className="w-16 h-16 rounded-lg" />
-                    </div>
+            <div className="flex items-center bg-gray-200" >
+                <div className="flex items-center space-x-4">
+                    <img src={user.urlPhoto} alt={user.name} className="w-16 h-16 rounded-lg" />
                     <div className="">
-                        <div className="">
-                            {user.name}
-                        </div>
-                        <div>
-                            @{user.username}
-                        </div>
-                        <div className="">
-                            {user.email}
-                        </div>
+                        <div className="text-lg font-semibold">{user.name}</div>
+                        <div>@{user.username}</div>
+                        <div>{user.email}</div>
                     </div>
-                </div>
-                <div className="">
-                    <Icon icon="mdi-refresh" className=""/>
+                    <button
+                    onClick={() => loadUser(setUser)} // Passa a referência de setUser para loadUser
+                    className="p-2 bg-gray-400 text-black hover:bg-gray-500"
+                >
+                    <Icon icon="mdi-refresh" className="w-6 h-6" />
+                </button>
                 </div>
             </div>
         </>
-    )
+    );
 }
