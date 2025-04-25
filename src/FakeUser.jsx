@@ -29,8 +29,8 @@ export default function FakeUser() {
 
     return (
         <>
-            <div className="flex items-center bg-gray-200" >
-                <div className="flex items-center space-x-4">
+            <div className="flex items-center bg-gray-200 w-140 border border-black" >
+                <div className="flex items-center justify-between" >
                     <img src={user.urlPhoto} alt={user.name} className="w-16 h-16 rounded-lg" />
                     <div className="">
                         <div className="text-lg font-semibold">{user.name}</div>
@@ -39,10 +39,10 @@ export default function FakeUser() {
                     </div>
                     <button
                     onClick={() => loadUser(setUser)} // Passa a referência de setUser para loadUser
-                    className="p-2 bg-gray-400 text-black hover:bg-gray-500"
-                >
+                    className="flex items-center p-1 bg-gray-400 rounded text-black hover:bg-gray-500"
+                    >
                     <Icon icon="mdi-refresh" className="w-6 h-6" />
-                </button>
+                    </button>
                 </div>
             </div>
         </>
