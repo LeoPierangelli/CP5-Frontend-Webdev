@@ -21,7 +21,7 @@ async function loadUser(setUser) {
     };
 
     console.log("Novo usuário:", newUser);
-    setUser(newUser); // Atualiza o estado do usuário
+    setUser(newUser); 
 }
 
 export default function FakeUser() {
@@ -29,16 +29,18 @@ export default function FakeUser() {
 
     return (
         <>
-            <div className="flex items-center bg-gray-200 w-140 border border-black" >
-                <div className="flex items-center justify-between" >
-                    <img src={user.urlPhoto} alt={user.name} className="w-16 h-16 rounded-lg" />
-                    <div className="">
-                        <div className="text-lg font-semibold">{user.name}</div>
-                        <div>@{user.username}</div>
-                        <div>{user.email}</div>
+            <div className="flex items-center bg-gray-200 w-140 m-1 rounded-lg" >
+                <div className="flex items-center justify-between w-full p-1 pl-5 pr-5" >
+                    <div className="flex items-center">
+                        <img src={user.urlPhoto} alt={user.name} className="w-16 h-16 rounded-lg mr-3" />
+                        <div className="">
+                            <div className="text-lg font-semibold">{user.name}</div>
+                            <div>@{user.username}</div>
+                            <div>{user.email}</div>
+                        </div>
                     </div>
                     <button
-                    onClick={() => loadUser(setUser)} // Passa a referência de setUser para loadUser
+                    onClick={() => loadUser(setUser)}
                     className="flex items-center p-1 bg-gray-400 rounded text-black hover:bg-gray-500"
                     >
                     <Icon icon="mdi-refresh" className="w-6 h-6" />
