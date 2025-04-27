@@ -1,90 +1,25 @@
-![](./fiap.png)
+# Projeto: Fake Users
 
-# Web development 2025/1
+## Descrição
+Este projeto é uma aplicação React que utiliza a API [randomuser.me](https://randomuser.me/) para gerar e exibir uma lista de usuários falsos. A aplicação permite atualizar os dados do usuário ao clicar em um botão.
 
+## Integrantes
+- **Cilas Pinto Macedo** - RM560745
+- **Ian Junji Maluvayshi Matsushita** - RM560588
+- **Pedro Arão Baquini** - RM559580
+- **Leandro Kamada Pesce Dimov** - RM560381
+- **Leonardo de Souza Pierangelli** - RM560501
 
-| Checkpoint        | 5      | ```CURSO:```     | ENGENHARIA DE SOFTWARE |
-| ----------------- | ------ | ---------------- | ---------------------- |
-| ```DISCIPLINA:``` | Webdev/Frontend | ```PROFESSOR:``` | Marcelo Amorim         |
+## Tecnologias Utilizadas
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Vite**: Ferramenta de construção rápida para projetos em JavaScript.
+- **Tailwind CSS**: Framework CSS para estilização rápida e responsiva.
 
-# Fake Users Revenge
+## Funcionalidades
+- Exibição de uma lista de usuários falsos.
+- Atualização dos dados do usuário ao clicar no botão de refresh.
 
-### Sua missão
+## Licença
+Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-Sua tarefa nesta atividade é completar o App React deste repositório que apresenta uma lista de usuários falsos usando a API [randomuser.me](https://randomuser.me/) *(A free, open-source API for generating random user data. Like Lorem Ipsum, but for people)*.
-
-### MISSÃO FRONT-END
-
-Sem alterar/acrescentar novos elementos HTML nas estruturas dos trechos JSX dos componentes ```APP.jsx``` e ```FakeUser.jsx```, aplicar classes ```Tailwind CSS``` para que o App fique semelhante a aparencia apresentada no exemplo.  
-
-### MISSÃO Webdev
-
-Você deve acrescentar as funcionalidades necessárias ao componente ```FakeUser.jsx```:
-* Na inicialização do componente via ```useEffect```, receber os dados de um usuário falso via a API **randomuser** e alterar os dados na renderização do componente JSX (HTML).
-* Adicionar o evento de clique ao Icone de atualização para novamente carregar um novo usuário. 
-
-#### Tem um exemplo de como deveria ficar meu App?
-
-Sim. O video abaixo ilustra como seu App deve mais ou menos ficar...
-
-https://github.com/user-attachments/assets/dfa0b535-cd27-4178-bf61-4886a121a426
-
-## Como usar o randomuser ??
-
-A função assíncrona abaixo realiza uma requisição HTTP para a API do Randonuser.
-
-~~~js
-async function loadUser() {
-    let resp = await fetch("https://randomuser.me/api/")
-    let data = await resp.json()
-    let fakeUser = data.results[0]
-    console.log("fakeUser",fakeUser);
-    let _user = {
-        name: fakeUser.name.first + fakeUser.name.last,
-        email: fakeUser.email,
-        username: fakeUser.login.username,
-        urlPhoto: fakeUser.picture.medium
-    }
-    console.log("_user",_user);
-}
-
-loadUser() // imprime um objeto contendo todas as informações sobre um usuário e um objeto _user com apenas as informações necessárias
-~~~
-
-# Passo a passo da tarefa
-
-1. Clonar este repositório
-   
-~~~bash
-git clone https://github.com/mmamorim/CP5-Webdev.git
-~~~
-
-2. Abrir pasta clonada com o VSCode
-3. Abrir terminal
-4. Executar instalação dos pacotes
-
-~~~bash
-npm install
-~~~
-
-5. Executar o projeto
-
-~~~bash
-npm run dev
-~~~
-
-6. Modificar apenas o componente ```FakeUser.jsx```
-   * Adicionar a captura da inicialização do componente via ```useEffect``` que realizará a chamada da API e receberá os dados de um usuário falso via a API **randomuser** alterarando os dados via ```setUser()``` que implicará na atualização da renderização do componente JSX (HTML).
-   * Adicionar o evento de clique ao Icone de atualização para novamente carregar um novo usuário.  
-
-# O que deve ser entregue?
-
-A entrega deve ser realizada no TEAMs na tarefa que foi criada para sua turma / disciplina (web development) e (frontend) enviando um link para um repositório do github contendo o projeto. **Enviar o mesmo link para as duas tarefas**.
-
-> **IMPORTANTE**
-> * Os grupos podem ter no máximo 6 integrantes
-> * A entrega deve ser realiza por apenas um dos integrantes do grupo 
-> * O repositório deve conter RA e Nome completo dos integrantes
-> * Verifique se o link corresponde ao repositório e esteja correto antes de enviar ao Teams 
-> * **Prazo da entrega**: 26/04 
 
